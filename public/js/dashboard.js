@@ -38,35 +38,32 @@ $.ajax({
     }
 });
 
-$("#groups-tbl").on('click', '.survey-btn', () => {
-    $('#groups-tbl [data-surveygroupid]').each(function(event) {
-        var groupid = $(this).data('surveygroupid');
-        getGroupUser(userid, groupid).then((data) => {
-            $.ajax({
-                url: "dashboard",
-                type: "POST",
-                data: {groupuser: data, action: 'groupsurvey'}
-            }).then(() => {
-                window.location.replace('/groupsurvey');
-            })
-        });
+$("#groups-tbl").on('click', '.survey-btn', function() {
+    var groupid = $(this).data('surveygroupid');
+    getGroupUser(userid, groupid).then((data) => {
+        $.ajax({
+            url: "dashboard",
+            type: "POST",
+            data: {groupuser: data, action: 'groupsurvey'}
+        }).then(() => {
+            window.location.replace('/groupsurvey');
+        })
     });
-})
+});
 
-$("#groups-tbl").on('click', '.result-btn', () => {
-    $('#groups-tbl [data-resultgroupid]').each(function(event) {
-        var groupid = $(this).data('resultgroupid');
-        getGroupUser(userid, groupid).then((data) => {
-            $.ajax({
-                url: "dashboard",
-                type: "POST",
-                data: {groupuser: data, action: 'groupresults'}
-            }).then(() => {
-                window.location.replace('/groupresults');
-            })
-        });
+$("#groups-tbl").on('click', '.result-btn', function() {
+    var groupid = $(this).data('resultgroupid');
+    getGroupUser(userid, groupid).then((data) => {
+        $.ajax({
+            url: "dashboard",
+            type: "POST",
+            data: {groupuser: data, action: 'groupresults'}
+        }).then(() => {
+            window.location.replace('/groupresults');
+        })
     });
-})
+});
+
 
 function getGroupUser(userid, groupid) {
     return new Promise((resolve, reject) => {

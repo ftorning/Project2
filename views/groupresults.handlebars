@@ -1,14 +1,27 @@
 <h1>Group Results</h1>
 
-{{!-- 4x4 card area --}}
-
-
-{{!-- end card area --}}
-
-{{!-- individual type --}}
-
-{{!-- summary of type - this will need to come from javascript --}}
-
+<div id="card-matrix" class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 no-padding">
+            <div class="row" id="quadrant-one"></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 no-padding">
+            <div class="row" id="quadrant-two"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 no-padding">
+            <div class="row" id="quadrant-three"></div>
+        </div>
+        <div class="col-xs-12 col-sm-6 no-padding">
+            <div class="row" id="quadrant-four"></div>
+        </div>
+    </div>
+</div>
+<br>
+<h1>Individual Results</h1>
+<h1 id="ind-title"></h1>
+<h4 id="ind-summary"></h4>
 <script>
     let groupuser = "{{ groupuser }}";
 </script>
