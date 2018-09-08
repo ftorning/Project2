@@ -34,7 +34,7 @@ function loginProcess(email) {
                     type: "POST",
                     data: data
                 }).then((data) => {
-                    user = data;
+                    user = data[0];
                     resolve(user);
                 })
             }
@@ -45,16 +45,12 @@ function loginProcess(email) {
 submitBtn.on("click", () => {
     event.preventDefault();
     loginProcess(inputEmail.val().toLowerCase()).then((result) => {
-        console.log('here');
-        console.log(result);
         if (result) {
-            console.log(result);
             $.ajax({
                 url: "login",
                 type: "POST",
                 data: result
             }).then(() => {
-                console.log('wtf');
                 document.location.replace('/dashboard');
             })
         }

@@ -11,6 +11,7 @@ module.exports = function(app) {
       res.render("login");
     })
     .post((req, res) => {
+      console.log(req.body);
       req.session.user = req.body;
       res.redirect('/dashboard');
     });
