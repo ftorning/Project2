@@ -1,12 +1,9 @@
 
 console.log('group results js loaded');
-console.log(groupuser);
-
 
 getGroupID(groupuser).then(data => {
     getGroupResults(data).then(data => {
         processUsers(data).then(data => {
-            console.log(data);
             buildCards(data);
         })
     })
@@ -183,8 +180,6 @@ function buildCards(userResults) {
             if (cardData[i].id === userResults[j].personality) {
                 cardText.append(userResults[j].name);
                 cardText.append("<br>");
-                console.log(userResults[j].groupUserId);
-                console.log(groupuser);
                 if (userResults[j].groupUserId === parseInt(groupuser)) {
                     $('#ind-title').text(cardData[i].id);
                     $('#ind-summary').text(cardData[i].summary);
@@ -236,34 +231,38 @@ function getUserScore(answerArray) {
 }
 
 function personalityType(data) {
-    let personalitytype = '';
-    data['IE'] += 30;
-    data['SN'] += 12;
-    data['FT'] += 30;
-    data['JP'] += 18; 
-    if (data['IE'] > 24) {
-        personalitytype += 'E';
-    } else {
-        personalitytype += 'I';
-    }
+    if (!$.isEmptyObject(data)) {
+        let personalitytype = '';
+        data['IE'] += 30;
+        data['SN'] += 12;
+        data['FT'] += 30;
+        data['JP'] += 18; 
+        if (data['IE'] > 24) {
+            personalitytype += 'E';
+        } else {
+            personalitytype += 'I';
+        }
 
-    if (data['SN'] > 24) {
-        personalitytype += 'N';
-    } else {
-        personalitytype += 'S';
-    }
+        if (data['SN'] > 24) {
+            personalitytype += 'N';
+        } else {
+            personalitytype += 'S';
+        }
 
-    if (data['FT'] > 24) {
-        personalitytype += 'T';
-    } else {
-        personalitytype += 'F';
-    }
+        if (data['FT'] > 24) {
+            personalitytype += 'T';
+        } else {
+            personalitytype += 'F';
+        }
 
-    if (data['JP'] > 24) {
-        personalitytype += 'P';
-    } else {
-        personalitytype += 'J';
-    }
+        if (data['JP'] > 24) {
+            personalitytype += 'P';
+        } else {
+            personalitytype += 'J';
+        }
 
-    return personalitytype;
+        return personalitytype;
+    } else {
+        return "";
+    }
 }

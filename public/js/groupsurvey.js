@@ -22,23 +22,23 @@ $.ajax({
         let radioOne = $('<input>');
         radioOne.addClass("form-check-input radio");
         radioOne.attr({"type": "radio", "name": (data[i].id), "value": 1, "data-question": data[i].id});
-        // radioOne.prop('required', 'true');
+        radioOne.prop('required', 'true');
         let radioTwo = $('<input>');
         radioTwo.addClass("form-check-input radio");
         radioTwo.attr({"type": "radio", "name": (data[i].id), "value": 2, "data-question": data[i].id});
-        // radioTwo.prop('required', 'true');
+        radioTwo.prop('required', 'true');
         let radioThree = $('<input>');
         radioThree.addClass("form-check-input radio");
         radioThree.attr({"type": "radio", "name": (data[i].id), "value": 3, "data-question": data[i].id});
-        // radioThree.prop('required', 'true');
+        radioThree.prop('required', 'true');
         let radioFour = $('<input>');
         radioFour.addClass("form-check-input radio");
         radioFour.attr({"type": "radio", "name": (data[i].id), "value": 4, "data-question": data[i].id});
-        // radioFourOne.prop('required', 'true');
+        radioFour.prop('required', 'true');
         let radioFive = $('<input>');
         radioFive.addClass("form-check-input radio");
         radioFive.attr({"type": "radio", "name": (data[i].id), "value": 5, "data-question": data[i].id});
-        // radioFive.prop('required', 'true');
+        radioFive.prop('required', 'true');
         
         radioGrp.append([radioOne, radioTwo, radioThree, radioFour, radioFive]);
         options.append(radioGrp);
