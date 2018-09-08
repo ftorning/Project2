@@ -28,7 +28,7 @@ $('#submitBtn').on('click', (e) => {
         let userData = $(".user-input");
         for (let i = 0; i < userData.length; i += 2) {
             user = {};
-            user[userData[i].attributes['data-field'].value] = userData[i].value;
+            user[userData[i].attributes['data-field'].value] = userData[i].value.toLowerCase();
             user[userData[i + 1].attributes['data-field'].value] = userData[i + 1].value;
             createUser(user).then((data) => {
                 createGroupUser(groupid, data).then(data => {
